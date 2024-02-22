@@ -5,13 +5,14 @@ const task = require("./commads/task.js")
 const init = require("./commads/init.js")
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
+const getUsername = require("./helpers/git/getUsername.js")
 const argv = yargs(hideBin(process.argv)).argv
 
 console.log(argv);
 
 let command = argv._[0]
 
-switch(command){
+switch (command) {
     case undefined:
         printUsage()
         break
@@ -19,6 +20,6 @@ switch(command){
         init()
         break
     case 'task':
-        task(argv._,argv.w,argv.c)
+        task(argv._, argv.w, argv.c)
         break
 }

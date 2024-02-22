@@ -1,6 +1,7 @@
 const fs = require('fs')
 const cwd = process.cwd()
 module.exports = function toclosed(name) {
+    console.log(name);
     fs.readFile(cwd + '/.pit/tasks/working', (err, data) => {
         if (err) {
             throw err
