@@ -8,7 +8,7 @@ cd pit-js
 ```
 to install pit in your system
 ```bash
-npm i -g .
+npm i && npm i -g .
 ```
 
 ## Task
