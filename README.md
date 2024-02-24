@@ -34,10 +34,10 @@ to add your task to Working
 ```bash
 pit task add -w "task_name"
 ```
-to add your task to Working 
+to add your task to Completed 
 
 ```bash
-pit task add -w "task_name"
+pit task add -c "task_name"
 ```
 
 # Happy Coding 
