@@ -1,4 +1,5 @@
 # PIT - Project Management (CLI)
+ ## this program use your git config email as user id . this will change when user mangement completed....
  
 #### powerfull CLI project management system
 
