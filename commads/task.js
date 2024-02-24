@@ -1,10 +1,9 @@
 const setTask = require('../helpers/task/setTask.js')
 const getTasks = require('../helpers/task/getTasks.js')
 const toWorking = require('../helpers/task/toWorking.js');
-const toCompleted = require('../helpers/task/toCompleted.js');
+const toClosed = require('../helpers/task/toCompleted.js');
 
 module.exports = function task(args, _w = false, _c = false) {
-    console.log(args);
     switch (args[1]) {
         case undefined:
             getTasks()
@@ -22,7 +21,7 @@ module.exports = function task(args, _w = false, _c = false) {
                     toWorking(_w)
                     break
                 case Boolean(!_w && _c):
-                    toCompleted(_c)
+                    toClosed(_c)
                     break
                 default:
                     console.log("usage")
@@ -30,6 +29,5 @@ module.exports = function task(args, _w = false, _c = false) {
             }
             break
         case 'remove':
-
     }
 }

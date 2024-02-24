@@ -5,10 +5,8 @@ const task = require("./commads/task.js")
 const init = require("./commads/init.js")
 const yargs = require('yargs/yargs')
 const { hideBin } = require('yargs/helpers')
-const getUsername = require("./helpers/git/getUsername.js")
+const getUseremail = require("./helpers/git/getUseremail.js")
 const argv = yargs(hideBin(process.argv)).argv
-
-console.log(argv);
 
 let command = argv._[0]
 
@@ -22,4 +20,7 @@ switch (command) {
     case 'task':
         task(argv._, argv.w, argv.c)
         break
+    case 'role':
+        
+
 }

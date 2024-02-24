@@ -1,16 +1,30 @@
 const fs = require('fs')
 const cwd = process.cwd()
-module.exports = function toclosed(name) {
-    console.log(name);
+
+module.exports = function toWorking(name) {
     fs.readFile(cwd + '/.pit/tasks/working', (err, data) => {
+
         if (err) {
             throw err
         }
-        let workingTasks = data.toString().split('\n')
-        if (workingTasks.includes(name)) {
-            workingTasks.splice(workingTasks.indexOf(name), 1)
+
+        let index;
+
+        const matchTask = (task, i) => {
+            if (task.split('||')[0] === name) {
+                index = i
+                name = task
+                return true
+            }
         }
-        fs.writeFile(cwd + '/.pit/tasks/working', workingTasks.join('\n'), 'utf-8', (err) => {
+
+        let workingTasks = data.toString().split('\n')
+
+        if (workingTasks.filter(matchTask)?.length != 0) {
+            console.log(workingTasks.splice(index, 1))
+        }
+
+        fs.writeFile(cwd + '/.pit/tasks/woking', workingTasks.join('\n'), 'utf-8', (err) => {
             if (err) {
                 throw err
             }

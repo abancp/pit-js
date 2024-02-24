@@ -15,4 +15,9 @@ module.exports = function init(){
             throw err
         }
     })
+    fs.mkdir(cwd+'/.pit/devs',(err)=>{
+        if(err){
+            throw err
+        }
+    })
 }
