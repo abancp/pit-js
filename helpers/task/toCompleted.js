@@ -4,8 +4,8 @@ const cwd = process.cwd()
 module.exports = function toWorking(name) {
     fs.readFile(cwd + '/.pit/tasks/working', (err, data) => {
 
-        if (err) {
-            throw err
+        if (!err?.code === "ENOENT") {
+                    throw err
         }
 
         let index;
@@ -18,16 +18,17 @@ module.exports = function toWorking(name) {
             }
         }
 
-        let workingTasks = data.toString().split('\n')
+        let workingTasks = data?.toString().split('\n')
 
-        if (workingTasks.filter(matchTask)?.length != 0) {
-            console.log(workingTasks.splice(index, 1))
+        if (workingTasks?.filter(matchTask)?.length != 0) {
+            console.log(workingTasks?.splice(index, 1))
         }
 
-        fs.writeFile(cwd + '/.pit/tasks/woking', workingTasks.join('\n'), 'utf-8', (err) => {
-            if (err) {
-                throw err
-            }
+        fs.writeFile(cwd + '/.pit/tasks/working', workingTasks ? workingTasks?.join('\n') : 'undefined', 'utf-8', (err) => {
+           if (!err?.code === "ENOENT") {
+                    throw err
+           }
+
             if (fs.existsSync(cwd + '/.pit/tasks/closed')) {
                 fs.appendFile(cwd + '/.pit/tasks/closed', '\n' + name, (err) => {
                     if (err) {

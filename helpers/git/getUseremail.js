@@ -11,7 +11,7 @@ module.exports = function getUseremail() {
                     const useremail = list[list?.indexOf('user.email') + 1]
                     resolve(useremail)
                 } else {
-                    console.log("please complete your git configuration \n (git config --global user.email \"FIRST_email LAST_email\") ")
+                    console.log("please complete your git configuration \n (git config --global user.email \"email\") ")
                     reject()
                 }
             }
