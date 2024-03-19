@@ -10,10 +10,10 @@ module.exports = async function setTask(name) {
         return console.log('task already in active tasks')
     }
     if (tasks?.working?.filter((task) => task.split('||')[0] === name)?.length != 0) {
-        return console.log('task already devolping')
+        return console.log('task already developing')
     }
     if (tasks?.closed?.filter((task) => task.split('||')[0] === name)?.length != 0) {
-        return console.log('tasl already completed')
+        return console.log('task already completed')
     }
     if (fs.existsSync(process.cwd() + '/.pit/tasks/active')) {
         fs.appendFile(process.cwd() + '/.pit/tasks/active', `\n${name}||${useremail}`, (err) => {

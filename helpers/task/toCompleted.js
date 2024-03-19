@@ -20,9 +20,13 @@ module.exports = function toWorking(name) {
 
         let workingTasks = data?.toString().split('\n')
 
-        if (workingTasks?.filter(matchTask)?.length != 0) {
+        let tasks = workingTasks?.filter(matchTask)
+
+        if (tasks.length != 0) {
             console.log(workingTasks?.splice(index, 1))
         }
+
+        console.log(tasks);
 
         fs.writeFile(cwd + '/.pit/tasks/working', workingTasks ? workingTasks?.join('\n') : 'undefined', 'utf-8', (err) => {
            if (!err?.code === "ENOENT") {

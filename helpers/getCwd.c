@@ -20,7 +20,6 @@ char* getCwd() {
   char *cwd = getcwd(cwd_buffer, sizeof(cwd_buffer));
 
   if (cwd != NULL) {
-    printf("Current Working Directory: %s\n", cwd);
     return cwd;
   } else {
     perror("getcwd");

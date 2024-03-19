@@ -22,5 +22,4 @@ switch (command) {
         break
     case 'role':
         
-
 }

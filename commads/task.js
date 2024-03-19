@@ -15,7 +15,7 @@ module.exports = function task(args, _w = false, _c = false) {
                     break
                 case Boolean(_w && _c):
                     console.log("usage")
-                    //TODO:suitable usegae msg
+                    //TODO:suitable usage msg
                     break
                 case Boolean(_w && !_c):
                     toWorking(_w)
